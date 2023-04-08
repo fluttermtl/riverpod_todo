@@ -1,16 +1,13 @@
 # riverpod_todo
 
-A new Flutter project.
+A minimal example of the Todo App with RiverPod 2.0.
 
-## Getting Started
+![alt](./screenshots/screenshot.png)
 
-This project is a starting point for a Flutter application.
+## Structure
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* lib/main.dart: starting point.
+* lib/todo_page.dart: main page of the app.
+* lib/todo_list.dart: todo listing widget.
+* lib/todo_text_field.dart: input text widget for adding a todo.
+* lib/todo_provider.dart: business logic of the app with riverpod provider.
