@@ -110,7 +110,7 @@ class FilteredTodosProvider extends AutoDisposeProvider<List<Todo>> {
   }
 }
 
-String _$todosHash() => r'244aa6f8ba7e60bfbdb370d3331ec4179c4393ba';
+String _$todosHash() => r'679c3dae4692ab514a1d6eba757bf8c2f07cad39';
 
 /// See also [Todos].
 @ProviderFor(Todos)

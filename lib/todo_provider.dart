@@ -1,13 +1,15 @@
+import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:uuid/uuid.dart';
 
 part 'todo_provider.g.dart';
 
+@immutable
 class Todo {
-  String id;
-  String name;
-  bool completed;
-  Todo({
+  final String id;
+  final String name;
+  final bool completed;
+  const Todo({
     required this.id,
     required this.name,
     this.completed = false,
@@ -25,18 +27,12 @@ class Todos extends _$Todos {
     state = [...state, Todo(id: const Uuid().v4(), name: name)];
   }
 
-  void delete(String id) {
-    state = state.where((element) => element.id == id).toList();
-  }
-
   void toggle(String id) {
-    state = [
-      for (final todo in state)
-        if (todo.id == id)
-          Todo(id: todo.id, name: todo.name, completed: !todo.completed)
-        else
-          todo,
-    ];
+    state = state
+        .map((e) => e.id == id
+            ? Todo(id: e.id, name: e.name, completed: !e.completed)
+            : e)
+        .toList();
   }
 }
 
