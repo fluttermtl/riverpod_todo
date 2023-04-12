@@ -13,14 +13,15 @@ class TodoList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final todos = ref.watch(filteredTodosProvider(filter));
+
     return ListView.builder(
       itemCount: todos.length,
       itemBuilder: (ctx, idx) => CheckboxListTile(
+        title: Text(todos[idx].name),
         value: todos[idx].completed,
         onChanged: (_) => ref.read(todosProvider.notifier).toggle(
               todos[idx].id,
             ),
-        title: Text(todos[idx].name),
       ),
     );
   }
