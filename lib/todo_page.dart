@@ -10,29 +10,20 @@ class TodoPage extends StatefulWidget {
   State<TodoPage> createState() => _TodoPageState();
 }
 
-extension TodoFilterEtx on TodoFilter {
-  List<bool> toList() => List.generate(
-        TodoFilter.values.length,
-        (idx) => index == idx,
-      );
-}
-
 class _TodoPageState extends State<TodoPage> {
   TodoFilter selectedFilter = TodoFilter.all;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('TodoApp'),
-      ),
+      appBar: AppBar(title: const Text('TodoApp')),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
             TodoTextField(),
             ToggleButtons(
-              isSelected: selectedFilter.toList(),
+              isSelected: selectedFilter.list,
               onPressed: (int index) {
                 setState(() {
                   selectedFilter = TodoFilter.values[index];
@@ -52,4 +43,9 @@ class _TodoPageState extends State<TodoPage> {
       ),
     );
   }
+}
+
+extension TodoFilterExt on TodoFilter {
+  List<bool> get list =>
+      List.generate(TodoFilter.values.length, (idx) => index == idx);
 }

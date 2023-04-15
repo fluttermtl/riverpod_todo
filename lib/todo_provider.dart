@@ -20,13 +20,12 @@ class Todo {
     String? id,
     String? name,
     bool? completed,
-  }) {
-    return Todo(
-      id: id ?? this.id,
-      name: name ?? this.name,
-      completed: completed ?? this.completed,
-    );
-  }
+  }) =>
+      Todo(
+        id: id ?? this.id,
+        name: name ?? this.name,
+        completed: completed ?? this.completed,
+      );
 }
 
 @riverpod
@@ -42,11 +41,10 @@ class Todos extends _$Todos {
   }
 
   void toggle(String id) {
-    state = state
-        .map(
-          (e) => e.id == id ? e.copyWith(completed: !e.completed) : e,
-        )
-        .toList();
+    state = List.generate(state.length, (index) {
+      final todo = state[index];
+      return todo.id == id ? todo.copyWith(completed: !todo.completed) : todo;
+    });
   }
 }
 
@@ -60,12 +58,12 @@ enum TodoFilter {
 
 @riverpod
 List<Todo> filteredTodos(FilteredTodosRef ref, TodoFilter filter) {
+  final todos = ref.watch(todosProvider);
   if (filter == TodoFilter.all) {
-    return ref.watch(todosProvider);
+    return todos;
   }
 
-  return ref
-      .watch(todosProvider)
-      .where((element) => element.completed == (filter == TodoFilter.completed))
+  return todos
+      .where((todo) => todo.completed == (filter == TodoFilter.completed))
       .toList();
 }

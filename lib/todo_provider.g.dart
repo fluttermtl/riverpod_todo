@@ -6,7 +6,7 @@ part of 'todo_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$filteredTodosHash() => r'286c48a3128726bc696d2b3002613e7753a52b61';
+String _$filteredTodosHash() => r'be67f10ea42de9055cda967617f9148d467eefd1';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -110,7 +110,7 @@ class FilteredTodosProvider extends AutoDisposeProvider<List<Todo>> {
   }
 }
 
-String _$todosHash() => r'679c3dae4692ab514a1d6eba757bf8c2f07cad39';
+String _$todosHash() => r'8ce6104d92023c5f7e21d4166af4b7dcf2c75de7';
 
 /// See also [Todos].
 @ProviderFor(Todos)

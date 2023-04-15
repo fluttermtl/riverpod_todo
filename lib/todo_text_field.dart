@@ -3,9 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_todo/todo_provider.dart';
 
 class TodoTextField extends ConsumerWidget {
-  TodoTextField({
-    super.key,
-  });
+  TodoTextField({super.key});
 
   final textEditingController = TextEditingController();
 

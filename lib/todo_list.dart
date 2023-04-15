@@ -19,9 +19,8 @@ class TodoList extends ConsumerWidget {
       itemBuilder: (ctx, idx) => CheckboxListTile(
         title: Text(todos[idx].name),
         value: todos[idx].completed,
-        onChanged: (_) => ref.read(todosProvider.notifier).toggle(
-              todos[idx].id,
-            ),
+        onChanged: (_) =>
+            ref.read(todosProvider.notifier).toggle(todos[idx].id),
       ),
     );
   }
