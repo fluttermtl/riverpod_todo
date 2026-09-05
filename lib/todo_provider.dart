@@ -57,7 +57,7 @@ enum TodoFilter {
 }
 
 @riverpod
-List<Todo> filteredTodos(FilteredTodosRef ref, TodoFilter filter) {
+List<Todo> filteredTodos(Ref ref, TodoFilter filter) {
   final todos = ref.watch(todosProvider);
   if (filter == TodoFilter.all) {
     return todos;
