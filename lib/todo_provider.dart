@@ -26,6 +26,24 @@ class Todo {
         name: name ?? this.name,
         completed: completed ?? this.completed,
       );
+
+  // changes the "==" operator to take count of object type and fields
+  @override
+  bool operator == (Object other){
+    if(identical(this, other)) return true;
+    
+    return other is Todo && other.id == id && other.name == name && other.completed == completed;    
+  }
+
+  // two object that is equals needs to point to the same hash
+  // it's to avoid duplicates keys when creating keys values with Map
+  @override
+  int get hashCode => Object.hash(id.hashCode, name.hashCode, completed.hashCode);
+
+  // for debugging this object
+  @override
+  String toString() => 'Todo(id: $id, name: $name, completed: $completed)';
+
 }
 
 @riverpod
