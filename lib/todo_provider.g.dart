@@ -6,122 +6,133 @@ part of 'todo_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$filteredTodosHash() => r'be67f10ea42de9055cda967617f9148d467eefd1';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
+@ProviderFor(Todos)
+final todosProvider = TodosProvider._();
 
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
+final class TodosProvider extends $NotifierProvider<Todos, List<Todo>> {
+  TodosProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'todosProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
 
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
+  @override
+  String debugGetCreateSourceHash() => _$todosHash();
 
-typedef FilteredTodosRef = AutoDisposeProviderRef<List<Todo>>;
+  @$internal
+  @override
+  Todos create() => Todos();
 
-/// See also [filteredTodos].
-@ProviderFor(filteredTodos)
-const filteredTodosProvider = FilteredTodosFamily();
-
-/// See also [filteredTodos].
-class FilteredTodosFamily extends Family<List<Todo>> {
-  /// See also [filteredTodos].
-  const FilteredTodosFamily();
-
-  /// See also [filteredTodos].
-  FilteredTodosProvider call(
-    TodoFilter filter,
-  ) {
-    return FilteredTodosProvider(
-      filter,
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(List<Todo> value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<List<Todo>>(value),
     );
-  }
-
-  @override
-  FilteredTodosProvider getProviderOverride(
-    covariant FilteredTodosProvider provider,
-  ) {
-    return call(
-      provider.filter,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'filteredTodosProvider';
-}
-
-/// See also [filteredTodos].
-class FilteredTodosProvider extends AutoDisposeProvider<List<Todo>> {
-  /// See also [filteredTodos].
-  FilteredTodosProvider(
-    this.filter,
-  ) : super.internal(
-          (ref) => filteredTodos(
-            ref,
-            filter,
-          ),
-          from: filteredTodosProvider,
-          name: r'filteredTodosProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$filteredTodosHash,
-          dependencies: FilteredTodosFamily._dependencies,
-          allTransitiveDependencies:
-              FilteredTodosFamily._allTransitiveDependencies,
-        );
-
-  final TodoFilter filter;
-
-  @override
-  bool operator ==(Object other) {
-    return other is FilteredTodosProvider && other.filter == filter;
-  }
-
-  @override
-  int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, filter.hashCode);
-
-    return _SystemHash.finish(hash);
   }
 }
 
 String _$todosHash() => r'8ce6104d92023c5f7e21d4166af4b7dcf2c75de7';
 
-/// See also [Todos].
-@ProviderFor(Todos)
-final todosProvider = AutoDisposeNotifierProvider<Todos, List<Todo>>.internal(
-  Todos.new,
-  name: r'todosProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$todosHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+abstract class _$Todos extends $Notifier<List<Todo>> {
+  List<Todo> build();
+  @$mustCallSuper
+  @override
+  WhenComplete runBuild() {
+    final ref = this.ref as $Ref<List<Todo>, List<Todo>>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<List<Todo>, List<Todo>>,
+              List<Todo>,
+              Object?,
+              Object?
+            >;
+    return element.handleCreate(ref, build);
+  }
+}
 
-typedef _$Todos = AutoDisposeNotifier<List<Todo>>;
-// ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
+@ProviderFor(filteredTodos)
+final filteredTodosProvider = FilteredTodosFamily._();
+
+final class FilteredTodosProvider
+    extends $FunctionalProvider<List<Todo>, List<Todo>, List<Todo>>
+    with $Provider<List<Todo>> {
+  FilteredTodosProvider._({
+    required FilteredTodosFamily super.from,
+    required TodoFilter super.argument,
+  }) : super(
+         retry: null,
+         name: r'filteredTodosProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$filteredTodosHash();
+
+  @override
+  String toString() {
+    return r'filteredTodosProvider'
+        ''
+        '($argument)';
+  }
+
+  @$internal
+  @override
+  $ProviderElement<List<Todo>> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  List<Todo> create(Ref ref) {
+    final argument = this.argument as TodoFilter;
+    return filteredTodos(ref, argument);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(List<Todo> value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<List<Todo>>(value),
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FilteredTodosProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
+}
+
+String _$filteredTodosHash() => r'be67f10ea42de9055cda967617f9148d467eefd1';
+
+final class FilteredTodosFamily extends $Family
+    with $FunctionalFamilyOverride<List<Todo>, TodoFilter> {
+  FilteredTodosFamily._()
+    : super(
+        retry: null,
+        name: r'filteredTodosProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  FilteredTodosProvider call(TodoFilter filter) =>
+      FilteredTodosProvider._(argument: filter, from: this);
+
+  @override
+  String toString() => r'filteredTodosProvider';
+}
